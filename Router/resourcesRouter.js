@@ -1,11 +1,11 @@
 const express = require("express");
-const re = require("./resourcesModel");
+const resources = require("./resourcesModel");
 const router = express.Router();
 
 router.get("/", (req, res) => {
-  re.getall()
-    .then(reres => {
-      res.status(200).json(reres);
+  resources.getall()
+    .then(resources => {
+      res.status(200).json(resources);
     })
     .catch(err => {
       console.log(err);
@@ -16,9 +16,9 @@ router.post("/:id", (req, res) => {
   const id = req.params.id;
   const body = { ...req.body, project_id: Number(id) };
   console.log("body", body);
-  re.add(body)
-    .then(reso => {
-      res.status(200).json(reso);
+  resources.add(body)
+    .then(res => {
+      res.status(200).json(res);
     })
     .catch(err => {
       console.log(err);
