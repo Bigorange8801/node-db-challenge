@@ -1,13 +1,13 @@
 const express = require("express");
 const server = express();
-const resourceApi = require("./Router/resouresRouter");
-const projectApi = require("./Router/projectsRouter");
-const taskApi = require("./Router/taskRouter");
+const resources = require("./Router/resourcesRouter");
+const projects = require("./Router/projectRouter");
+const tasks = require("./Router/tasksRouter");
 server.use(express.json());
 
-server.use("/api/resources", resourceApi);
-server.use("/api/projects", projectApi);
-server.use("/api/tasks", taskApi);
+server.use("/api/resources", resources);
+server.use("/api/projects", projects);
+server.use("/api/tasks", tasks);
 
 server.get("/", (req, res) => {
   res.status(200).json({ Message: "I missed you" });
