@@ -10,5 +10,7 @@ function getall() {
 }
 
 function add(body) {
-  return db("Projects").insert(body);
+  return db("Projects")
+  .insert(body)
+  // .then(([projectId]) => getall(projectId));
 }

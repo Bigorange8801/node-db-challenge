@@ -12,13 +12,13 @@ router.get("/", (req, res) => {
     });
 });
 
-router.post("/:id", (req, res) => {
-  const id = req.params.id;
-  const body = { ...req.body, project_id: Number(id) };
-  console.log("body", body);
+router.post("/:projectId", (req, res) => {
+  const id = req.params.projectId;
+  const body = { ...req.body, project_id: (id) };
+
   resources.add(body)
-    .then(res => {
-      res.status(200).json(res);
+    .then(added => {
+      res.status(200).json(added);
     })
     .catch(err => {
       console.log(err);
